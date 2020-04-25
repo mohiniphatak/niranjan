@@ -56,3 +56,6 @@ def tax_compliance(request):
 
 def trademark_registration(request):
     return render(request, 'cfohubapp/trademark-registration.html', {})
+
+def registered_transfer_agent_service(request):
+    return render(request, 'cfohubapp/registered-transfer-agent-service.html', {})

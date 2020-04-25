@@ -78,6 +78,9 @@ urlpatterns = [
         views.tax_compliance),
     path(
         'trademark_registration/',
-        views.trademark_registration)
+        views.trademark_registration),
+    path(
+        'registered_transfer_agent_service/',
+        views.registered_transfer_agent_service)
     
 ]

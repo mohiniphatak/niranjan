@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   position: relative;
   color: #635551;
-  padding: 11px 15px;
+  padding: 11px 14px;
   transition: 0.3s;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
@@ -1541,7 +1541,7 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
-  color: #656262;
+  color: #000000;
 }
 
 #footer .footer-top h4 {
@@ -1580,7 +1580,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #656262;
+  color: #000000;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
