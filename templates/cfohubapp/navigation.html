@@ -26,7 +26,7 @@
         <a href="{% url 'login' %}" class="scrollto">Login</a>
       </div>&nbsp;
       <div class="cta">
-        <a href="#about" class="scrollto">Register</a>
+        <a href="{% url 'signup' %}" class="scrollto">Register</a>
       </div>
 {% block content %}
 {% if user.is_authenticated %}

@@ -1,7 +1,14 @@
-{% extends './base.html' %}
+{% extends "./navigation.html" %}
+{% block main %}
 
-{% block content %}
-  <h2>Sign up</h2>
+ <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="credits">
+          <a href=""><h2>User Registration</h2></a> <br>
+
+
+  
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
@@ -18,4 +25,7 @@
     {% endfor %}
     <button type="submit">Sign up</button>
   </form>
+</div>
+</div>
+</section>
 {% endblock %}

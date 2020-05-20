@@ -22,6 +22,7 @@ urlpatterns = [
         '',
         views.home,
         name='home'),
+    path('signup/', views.signup, name='signup'),
     path(
         'one_person_company/',
         views.one_person_company),
