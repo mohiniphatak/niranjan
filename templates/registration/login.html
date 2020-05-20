@@ -1,0 +1,21 @@
+{% extends "cfohubapp/navigation.html" %}
+{% block main %}
+
+     <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="credits">
+          <a href=""><h2>User Login</h2></a> <br>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+
+
+</div>
+</div>
+</section>
+
+{% endblock %}
