@@ -1,0 +1,22 @@
+
+
+{% extends "./navigation.html" %}
+{% block main %}
+    <!-- ======= Team Section ======= -->
+
+ 
+
+     <section id="services" class="services section-bg">
+      <div class="container">
+
+        <h1>Contact Us</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-actions">
+              <button type="submit">Send</button>
+            </div>
+        </form>
+    </section><!-- End Services Section -->
+
+{% endblock %}

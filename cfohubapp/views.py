@@ -1,7 +1,25 @@
 from django.shortcuts import render, redirect
 
-from cfohubapp.forms import SignUpForm
+from cfohubapp.forms import SignUpForm,ContactForm
 from django.contrib.auth import login, authenticate
+from django.core.mail import send_mail
+from django.http import HttpResponse # Add this
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            sender_name = form.cleaned_data['name']
+            sender_email = form.cleaned_data['email']
+
+            message = "{0} has sent you a new message:\n\n{1}".format(sender_name, form.cleaned_data['message'])
+            send_mail('New Enquiry', message, sender_email, ['phatakmohini@gmail.com'])
+            # send email code goes here
+            return HttpResponse('Thanks for contacting us!')
+    else:
+        form = ContactForm()
+
+    return render(request, 'cfohubapp/email.html', {'form': form})
 
 def signup(request):
     if request.method == 'POST':
@@ -55,6 +73,9 @@ def financial_advisory(request):
 
 def funding_advisory(request):
     return render(request, 'cfohubapp/funding-advisory.html', {})
+
+def payroll_services(request):
+    return render(request, 'cfohubapp/payroll-services.html', {})
 
 def gst_advisory_board(request):
     return render(request, 'cfohubapp/gst-advisory-board.html', {})

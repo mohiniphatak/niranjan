@@ -23,6 +23,7 @@ urlpatterns = [
         views.home,
         name='home'),
     path('signup/', views.signup, name='signup'),
+    path('contact/', views.contact_us, name='contact_us'),
     path(
         'one_person_company/',
         views.one_person_company),
@@ -62,6 +63,9 @@ urlpatterns = [
     path(
         'funding_advisory/',
         views.funding_advisory),
+    path(
+        'payroll_services/',
+        views.payroll_services),
     path(
         'gst_advisory_board/',
         views.gst_advisory_board),
