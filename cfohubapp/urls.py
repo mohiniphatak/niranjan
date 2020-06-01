@@ -24,6 +24,8 @@ urlpatterns = [
         name='home'),
     path('signup/', views.signup, name='signup'),
     path('contact/', views.contact_us, name='contact_us'),
+    path('service/', views.select_service, name='service'),
+    path('handlerequest/', views.handlerequest, name='handlerequest'),
     path(
         'one_person_company/',
         views.one_person_company),

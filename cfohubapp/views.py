@@ -1,9 +1,16 @@
 from django.shortcuts import render, redirect
-
-from cfohubapp.forms import SignUpForm,ContactForm
+from django.contrib import messages
+from cfohubapp.forms import SignUpForm,ContactForm, ServicesForm
 from django.contrib.auth import login, authenticate
 from django.core.mail import send_mail
 from django.http import HttpResponse # Add this
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def handlerequest(request):
+    return HttpResponse('done')
+
+
 
 def contact_us(request):
     if request.method == 'POST':
@@ -34,6 +41,28 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'cfohubapp/signup.html', {'form': form})
+
+def select_service(request):
+    if request.method == 'POST':
+        
+        form = ServicesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Service Added Successfully')
+            param_dict = {
+            'MID':'gahnvI14405963610356',
+            'ORDER_ID':'dddgfgfeeed',
+            'TXN_AMOUNT':'1',
+            'CUST_ID':'mohini.phatak@indpro.se',
+            'INDUSTRY_TYPE_ID':'Retail',
+            'WEBSITE':'WEBSTAGING',
+            'CHANNEL_ID':'WEB',
+	        'CALLBACK_URL':'http://127.0.0.1:8005/handlerequest/',
+            }
+            return render(request, 'cfohubapp/paytm.html', {'param_dict': param_dict})
+    else:
+        form = ServicesForm()
+    return render(request, 'cfohubapp/service.html', {'form' : form})
 
 def home(request):
     return render(request, 'cfohubapp/main.html', {})
